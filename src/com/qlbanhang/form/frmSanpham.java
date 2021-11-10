@@ -141,9 +141,7 @@ public class frmSanpham {
                             JOptionPane.showMessageDialog(MainPanel, "Tên sản phẩm không được quá 40 ký tự", "Lỗi", JOptionPane.ERROR_MESSAGE);
                         }
 
-//                        if (Integer.parseInt(ProductPriceField.getText()) % 1 == 0) {
-//                            JOptionPane.showMessageDialog(MainPanel, "Giá bán phải là số", "Lỗi", JOptionPane.ERROR_MESSAGE);
-//                        }
+                        // check product price here...
 
                         else {
                             // Execute add new product method from DAO
@@ -159,6 +157,13 @@ public class frmSanpham {
                             ProductNameField.setText("");
                             ProductPriceField.setText("");
 
+                            // Set default states of buttons
+                            AddButton.setEnabled(true);
+                            EditButton.setEnabled(false);
+                            DeleteButton.setEnabled(false);
+                            SaveButton.setEnabled(false);
+                            UnsaveButton.setEnabled(false);
+
                             // Display successful message
                             JOptionPane.showMessageDialog(MainPanel, "Bạn đã thêm sản phẩm mới", "Thành công", JOptionPane.INFORMATION_MESSAGE);
                         }
@@ -173,13 +178,69 @@ public class frmSanpham {
                 if (ProductNameField.getText().trim().isEmpty() || ProductPriceField.getText().trim().isEmpty()) {
                     JOptionPane.showMessageDialog(MainPanel, "Bạn chưa nhập tên sản phẩm và giá bán để chính sửa sản phẩm", "Lỗi", JOptionPane.ERROR_MESSAGE);
                 } else {
+                     try {
+                        if (ProductNameField.getText().length() > 40) {
+                            JOptionPane.showMessageDialog(MainPanel, "Tên sản phẩm không được quá 40 ký tự", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                        }
 
+                        // check product price here...
+
+                        else {
+                            // Execute edit product method from DAO
+                            sanphamDAO.editProduct(new Sanpham(ProductIdField.getText(), ProductNameField.getText(), Integer.valueOf(ProductPriceField.getText())));
+
+                            // Update products list
+                            products.clear();
+                            products.addAll(sanphamDAO.getAllProducts());
+                            productsTableModel.fireTableDataChanged();
+
+                            // Set back buttons state
+                             AddButton.setEnabled(true);
+                            EditButton.setEnabled(true);
+                            DeleteButton.setEnabled(true);
+                            SaveButton.setEnabled(false);
+                            UnsaveButton.setEnabled(false);
+
+                            // Display successful message
+                            JOptionPane.showMessageDialog(MainPanel, "Bạn đã chỉnh sửa sản phẩm", "Thành công", JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
 
             // Handle delete product process
             else {
+                try {
+                    // Execute edit product method from DAO
+                    sanphamDAO.deleteProduct(ProductIdField.getText());
 
+                    // Update products list
+                    products.clear();
+                    products.addAll(sanphamDAO.getAllProducts());
+                    productsTableModel.fireTableDataChanged();
+
+                    // Enable product id field
+                    ProductIdField.setEnabled(true);
+
+                    // Clear form fields
+                    ProductIdField.setText("");
+                    ProductNameField.setText("");
+                    ProductPriceField.setText("");
+
+                    // Set default states of buttons
+                    AddButton.setEnabled(true);
+                    EditButton.setEnabled(false);
+                    DeleteButton.setEnabled(false);
+                    SaveButton.setEnabled(false);
+                    UnsaveButton.setEnabled(false);
+
+                    // Display successful message
+                    JOptionPane.showMessageDialog(MainPanel, "Bạn đã xóa sản phẩm", "Thành công", JOptionPane.INFORMATION_MESSAGE);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 
@@ -202,17 +263,6 @@ public class frmSanpham {
         ExitButton.addActionListener(e -> {
             System.exit(0);
         });
-    }
-
-    // Method to check if a string is a number
-    private boolean checkIfNumeric(String string) {
-        try {
-            int pushStringToInteger = Integer.parseInt(string);
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
-
-        return true;
     }
 
     // Method to create custom JTable

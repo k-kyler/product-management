@@ -14,8 +14,8 @@ public class SanphamDAO {
 
     private static final String SELECT_PRODUCTS = "select * from \"Sanpham\"";
 	private static final String INSERT_PRODUCT = "insert into \"Sanpham\"" + " (masp, tensp, giaban) values " + "(?, ?, ?)";
-	private static final String UPDATE_STUDENT = "update students set name = ?, gradeid = ? where studentid = ?";
-	private static final String DELETE_STUDENT = "delete from students where studentid = ?";
+	private static final String UPDATE_PRODUCT = "update \"Sanpham\" set tensp = ?, giaban = ? where masp = ?";
+	private static final String DELETE_PRODUCT = "delete from \"Sanpham\" where masp = ?";
 
     public SanphamDAO() {
 
@@ -74,5 +74,39 @@ public class SanphamDAO {
 		} catch (SQLException ex) {
 			System.err.println(ex);
 		}
+	}
+
+	// Method to edit product
+	public boolean editProduct(Sanpham product) throws SQLException {
+		boolean isUpdatedRow;
+
+		try (
+			Connection connection = getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PRODUCT);
+		) {
+			preparedStatement.setString(1, product.getTensp());
+			preparedStatement.setInt(2, product.getGiaban());
+			preparedStatement.setString(3, product.getMasp());
+
+			isUpdatedRow = preparedStatement.executeUpdate() > 0;
+		}
+
+		return isUpdatedRow;
+	}
+
+	// Method to delete product
+	public boolean deleteProduct(String id) throws SQLException {
+		boolean isDeletedRow;
+
+		try (
+			Connection connection = getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(DELETE_PRODUCT);
+		) {
+			preparedStatement.setString(1, id);
+
+			isDeletedRow = preparedStatement.executeUpdate() > 0;
+		}
+
+		return isDeletedRow;
 	}
 }
