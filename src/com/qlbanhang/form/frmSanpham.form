@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.qlbanhang.form.frmSanpham">
+  <grid id="27dc6" binding="MainPanel" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="578" height="276"/>
+    </constraints>
+    <properties>
+      <background color="-920843"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="e9f30" binding="Header" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="15" left="0" bottom="15" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-920843"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="ae2cc" class="javax.swing.JLabel" binding="Title">
+            <constraints>
+              <grid row="0" column="0" row-span="2" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-16777216"/>
+              <text value="QUẢN LÝ DANH MỤC SẢN PHẨM"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="ce1b0" binding="InputsContainer" layout-manager="GridLayoutManager" row-count="2" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="20" bottom="15" right="20"/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-920843"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="4dc10" class="javax.swing.JTextField" binding="ProductIdField">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+            </properties>
+          </component>
+          <component id="ab776" class="javax.swing.JLabel" binding="ProductPriceLabel">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-16777216"/>
+              <text value="Giá bán:"/>
+            </properties>
+          </component>
+          <component id="923cb" class="javax.swing.JTextField" binding="ProductPriceField">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+            </properties>
+          </component>
+          <component id="811b1" class="javax.swing.JTextField" binding="ProductNameField">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+            </properties>
+          </component>
+          <component id="d749f" class="javax.swing.JLabel" binding="ProductIdLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-16777216"/>
+              <text value="Mã SP:"/>
+            </properties>
+          </component>
+          <component id="d44dc" class="javax.swing.JLabel" binding="ProductNameLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-16777216"/>
+              <text value="Tên sản phẩm:"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="5d6ba" binding="ButtonsContainer" layout-manager="GridLayoutManager" row-count="1" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="20" bottom="15" right="20"/>
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-920843"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="11275" class="javax.swing.JButton" binding="AddButton">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Thêm"/>
+            </properties>
+          </component>
+          <component id="a9233" class="javax.swing.JButton" binding="EditButton">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Sửa"/>
+            </properties>
+          </component>
+          <component id="90a26" class="javax.swing.JButton" binding="DeleteButton">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Xóa"/>
+            </properties>
+          </component>
+          <component id="ac374" class="javax.swing.JButton" binding="SaveButton">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Lưu"/>
+            </properties>
+          </component>
+          <component id="b7c25" class="javax.swing.JButton" binding="UnsaveButton">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="K.Lưu"/>
+            </properties>
+          </component>
+          <component id="e657b" class="javax.swing.JButton" binding="ExitButton">
+            <constraints>
+              <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Thoát"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="b5a3c" binding="TableContainer" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="20" bottom="15" right="20"/>
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <scrollpane id="f7c31" binding="TableInnerContainer">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="7707d" class="javax.swing.JTable" binding="ProductsTable">
+                <constraints/>
+                <properties>
+                  <background color="-920843"/>
+                  <fillsViewportHeight value="false"/>
+                  <name value=""/>
+                  <rowMargin value="2"/>
+                  <rowSelectionAllowed value="true"/>
+                  <showVerticalLines value="false"/>
+                  <surrendersFocusOnKeystroke value="true"/>
+                  <visible value="true"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
