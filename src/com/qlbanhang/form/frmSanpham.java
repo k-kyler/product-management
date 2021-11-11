@@ -4,15 +4,7 @@ import com.qlbanhang.dao.SanphamDAO;
 import com.qlbanhang.model.Sanpham;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -77,6 +69,8 @@ public class frmSanpham {
                     ProductPriceField.setText(String.valueOf(selectedProduct.getGiaban()));
 
                     ProductIdField.setEnabled(false);
+                    ProductNameField.setEnabled(true);
+                    ProductPriceField.setEnabled(true);
                     AddButton.setEnabled(true);
                     EditButton.setEnabled(true);
                     DeleteButton.setEnabled(true);
@@ -92,12 +86,12 @@ public class frmSanpham {
 
             actionMethod = "add";
 
-            if (actionMethod == "edit" || actionMethod == "delete") {
-                ProductIdField.setText("");
-                ProductNameField.setText("");
-                ProductPriceField.setText("");
-            }
+            ProductIdField.setText("");
+            ProductNameField.setText("");
+            ProductPriceField.setText("");
 
+            ProductNameField.setEnabled(true);
+            ProductPriceField.setEnabled(true);
             SaveButton.setEnabled(true);
             UnsaveButton.setEnabled(true);
             AddButton.setEnabled(false);
@@ -109,6 +103,8 @@ public class frmSanpham {
         EditButton.addActionListener(e -> {
             actionMethod = "edit";
 
+            ProductNameField.setEnabled(true);
+            ProductPriceField.setEnabled(true);
             SaveButton.setEnabled(true);
             UnsaveButton.setEnabled(true);
             AddButton.setEnabled(false);
@@ -120,6 +116,8 @@ public class frmSanpham {
         DeleteButton.addActionListener(e -> {
             actionMethod = "delete";
 
+            ProductNameField.setEnabled(false);
+            ProductPriceField.setEnabled(false);
             SaveButton.setEnabled(true);
             UnsaveButton.setEnabled(true);
             AddButton.setEnabled(false);
@@ -139,11 +137,7 @@ public class frmSanpham {
                             JOptionPane.showMessageDialog(MainPanel, "Mã sản phẩm không được quá 6 ký tự", "Lỗi", JOptionPane.ERROR_MESSAGE);
                         } else if (ProductNameField.getText().length() > 40) {
                             JOptionPane.showMessageDialog(MainPanel, "Tên sản phẩm không được quá 40 ký tự", "Lỗi", JOptionPane.ERROR_MESSAGE);
-                        }
-
-                        // check product price here...
-
-                        else {
+                        } else {
                             // Execute add new product method from DAO
                             sanphamDAO.addNewProduct(new Sanpham(ProductIdField.getText(), ProductNameField.getText(), Integer.valueOf(ProductPriceField.getText())));
 
@@ -181,11 +175,7 @@ public class frmSanpham {
                      try {
                         if (ProductNameField.getText().length() > 40) {
                             JOptionPane.showMessageDialog(MainPanel, "Tên sản phẩm không được quá 40 ký tự", "Lỗi", JOptionPane.ERROR_MESSAGE);
-                        }
-
-                        // check product price here...
-
-                        else {
+                        } else {
                             // Execute edit product method from DAO
                             sanphamDAO.editProduct(new Sanpham(ProductIdField.getText(), ProductNameField.getText(), Integer.valueOf(ProductPriceField.getText())));
 
